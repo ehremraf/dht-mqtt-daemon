@@ -1,3 +1,6 @@
+Updated R4scal's code to show and publish fahrenheit for all the NA users of Home Assistant. Script changed to work
+with DHT11. All credit goes to R4scal.
+
 # DHT Raspberry MQTT Client/Daemon
 
 Linux service to collect and transfer DHT22/DHT11 sensor data via MQTT to Home Assistant
@@ -8,7 +11,7 @@ After data made the hop to the MQTT broker it can be used by home automation sof
 The program can be executed in **daemon mode** to run continuously in the background, e.g., as a systemd service.
 ## Features
 
-* Tested with DHT22 sensors
+* Tested with DHT11 sensors
 * Build on top of [Adafruit Python DHT Sensor Library](https://github.com/adafruit/Adafruit_Python_DHT)
 * Highly configurable
 * Data publication via MQTT
@@ -19,7 +22,7 @@ The program can be executed in **daemon mode** to run continuously in the backgr
 * No special/root privileges needed
 * Daemon mode (default)
 * Systemd service, sd\_notify messages generated
-* Tested on Raspberry Pi 3
+* Tested on Raspberry Pi Zero 2 W
 
 ### Readings
 
@@ -44,7 +47,7 @@ The following example shows the installation under Debian/Raspbian below the `/o
 ```shell
 sudo apt install git python3 python3-pip
 
-git clone https://github.com/R4scal/dht-mqtt-daemon.git /opt/dht-mqtt-daemon
+git clone https://github.com/ehremraf/dht-mqtt-daemon.git /opt/dht-mqtt-daemon
 
 cd /opt/dht-mqtt-daemon
 sudo pip3 install -r requirements.txt
