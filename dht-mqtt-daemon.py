@@ -132,14 +132,14 @@ sensor = dht.DHT22
 
 # Discovery Announcement
 if reporting_mode == 'homeassistant-mqtt':
-    print_line('Announcing DHT22 to MQTT broker for auto-discovery ...')
+    print_line('Announcing DHT11 to MQTT broker for auto-discovery ...')
     topic_path = '{}/sensor/{}'.format(base_topic, sensor_name)
     base_payload = {
         "state_topic": "{}/state".format(topic_path).lower()
     }
     # Temperature
     payload = dict(base_payload.items())
-    payload['unit_of_measurement'] = '°C'
+    payload['unit_of_measurement'] = '°F'
     payload['value_template'] = "{{ value_json.temperature }}"
     payload['name'] = "{} Temperature".format(sensor_name)
     payload['device_class'] = 'temperature'
@@ -163,7 +163,7 @@ while True:
    else:
      data = dict()
      data['humidity'] = '{0:0.1f}'.format(humidity)
-     data['temperature'] = '{0:0.1f}'.format(temperature)
+     data['temperature'] = '{0:0.1f}'.format((temperature * 1.8)+32)
      print_line('Result: {}'.format(json.dumps(data)))
      if reporting_mode == 'homeassistant-mqtt':
           print_line('Publishing to MQTT topic "{}/sensor/{}/state"'.format(base_topic, sensor_name).lower())
