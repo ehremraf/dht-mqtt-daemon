@@ -128,7 +128,7 @@ sd_notifier.notify('READY=1')
 # Initialize DHT sensor
 sensor_name = '{}_dht'.format(socket.gethostname()).replace("-", "_")
 print_line('Current sensor name is "{}"'.format(sensor_name).lower())
-sensor = dht.DHT22
+sensor = dht.DHT11
 
 # Discovery Announcement
 if reporting_mode == 'homeassistant-mqtt':
