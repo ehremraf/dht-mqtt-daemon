@@ -17,7 +17,7 @@ import paho.mqtt.client as mqtt
 import sdnotify
 
 project_name = 'DHT Raspberry MQTT Client/Daemon'
-project_url = 'https://github.com/R4scal/dht-mqtt-daemon'
+project_url = 'https://github.com/ehremraf/dht-mqtt-daemon'
 
 if False:
     # will be caught by python 2.7 to be illegal syntax
